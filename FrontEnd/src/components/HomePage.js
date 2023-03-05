@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled } from "@mui/system";
-import image from "./image1.svg";
+import image from "./image.svg";
 
 const MyComponent = styled("div")({
   color: "red",

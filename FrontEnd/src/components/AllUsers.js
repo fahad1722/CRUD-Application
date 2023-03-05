@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import { getUsers, deleteUser } from "../API/api";
 import { Link, useNavigate } from "react-router-dom";
 const StyledTable = styled(Table)`
-  width: 90%;
+  width: 99%;
   margin: 50px auto 0 auto;
 `;
 const Thead = styled(TableRow)`
