@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://localhost:7777";
+const URL =   `https://crudapp1-fwnm.onrender.com`;
 
 
 export const addUser = async (data) => {
