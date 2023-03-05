@@ -1,9 +1,10 @@
 import mongoose from "mongoose";
-mongoose.set("strictQuery", false);
 
-const Connection = async () => {
+
+const Connection = async (username,password) => {
+  const URL = `mongodb+srv://${username}:${password}@cluster0.vywskhi.mongodb.net/?retryWrites=true&w=majority`;
   try {
-    await mongoose.connect("mongodb://127.0.0.1:27017/fahad");
+    await mongoose.connect(URL);
     console.log("Database connected successfully");
   } catch (error) {
     console.log("Error while connecting with the database", error);
@@ -11,3 +12,4 @@ const Connection = async () => {
 };
 
 export default Connection;
+
