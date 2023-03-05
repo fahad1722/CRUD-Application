@@ -1,5 +1,3 @@
-#frontend
 FrontEnd/node_modules/
 BackEnd/node_modules/
-FrontEnd/build/
-
+BackEnd/.env
