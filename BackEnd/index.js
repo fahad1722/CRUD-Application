@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use("/", Routes);
 
-const PORT = process.env.PORT || 7777;
+const PORT = process.env.PORT || 7000;
 
 const username = process.env.DB_USERNAME;
 const password = process.env.DB_PASSWORD;
