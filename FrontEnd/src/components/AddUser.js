@@ -4,71 +4,93 @@ import {
   InputLabel,
   Input,
   Typography,
-  styled,
   Button,
+  Box,
+  Container
 } from "@mui/material";
 import { useState } from "react";
 import { addUser } from "../API/api";
 import { useNavigate } from "react-router-dom";
-const Container = styled(FormGroup)`
-  width: 50%;
-  margin: 5% auto 0 auto;
-  & > div {
-    margin-top: 10px;
-  }
-`;
+
 const defaultValue = {
   name: "",
-  username: "",
   email: "",
   phone: "",
-  company: "",
-  designation: "",
+  college: "",
 };
+
+const Title = () => {
+  return (
+    <Box
+      bgcolor="primary.main"
+      padding="8px"
+      borderRadius="8px"
+      boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+      marginY="10px"
+    >
+      <Typography variant="h3" align="center" color="white">
+        Create User
+      </Typography>
+    </Box>
+  );
+};
+
 const AddUser = () => {
   const [user, setUser] = useState(defaultValue);
+
   const onValueChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
-    console.log(user);
   };
+
   const navigate = useNavigate();
+
   const addUserDetails = async () => {
     await addUser(user);
     navigate("/all");
   };
+
   return (
     <Container>
-      <Typography variant="h4">Add User</Typography>
-      <FormControl>
-        <InputLabel>Name : </InputLabel>
-        <Input onChange={onValueChange} name="name" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>UserName : </InputLabel>
-        <Input onChange={onValueChange} name="username" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Email : </InputLabel>
-        <Input onChange={onValueChange} name="email" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Phone : </InputLabel>
-        <Input onChange={onValueChange} name="phone" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Company: </InputLabel>
-        <Input onChange={onValueChange} name="company" />
-      </FormControl>
-      <FormControl>
-        <InputLabel>Designtaion: </InputLabel>
-        <Input onChange={onValueChange} name="designation" />
-      </FormControl>
-      <FormControl>
-        <Button variant="contained" onClick={() => addUserDetails()}>
-          ADD USER
-        </Button>
-      </FormControl>
+      <Title />
+      <Box
+        bgcolor="white"
+        padding="16px"
+        borderRadius="8px"
+        boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+        textAlign="center"
+        width="50%"
+        margin="50px auto"
+      >
+      <FormGroup>
+        <FormControl style={{ margin: '10px 0' }}>
+          <InputLabel>Name : </InputLabel>
+          <Input onChange={onValueChange} name="name" />
+        </FormControl>
+
+        <FormControl style={{ margin: '10px 0' }}>
+          <InputLabel>Email : </InputLabel>
+          <Input onChange={onValueChange} name="email" />
+        </FormControl>
+
+        <FormControl style={{ margin: '10px 0' }}>
+          <InputLabel>Phone : </InputLabel>
+          <Input onChange={onValueChange} name="phone" />
+        </FormControl>
+
+        <FormControl style={{ margin: '10px 0' }}>
+          <InputLabel>College : </InputLabel>
+          <Input onChange={onValueChange} name="college" />
+        </FormControl>
+
+        <FormControl style={{ margin: '10px 0' }}>
+          <Button variant="contained" onClick={addUserDetails}>
+            ADD
+          </Button>
+        </FormControl>
+      </FormGroup>
+      </Box>
     </Container>
   );
 };
+
 export default AddUser;

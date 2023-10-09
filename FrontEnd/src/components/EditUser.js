@@ -6,31 +6,25 @@ import {
   InputLabel,
   Input,
   Typography,
-  styled,
+  Container,
   Button,
+  Box
 } from "@mui/material";
 import { useState, useEffect } from "react";
 import { editUser, getUser } from "../API/api";
 import { useNavigate, useParams } from "react-router-dom";
 
-const Container = styled(FormGroup)`
-  width: 50%;
-  margin: 5% auto 0 auto;
-  & > div {
-    margin-top: 10px;
-  }
-`;
+
 const defaultValue = {
   name: "",
-  username: "",
   email: "",
   phone: "",
-  company: "",
-  designation: "",
+  college: "",
+ 
 };
 const EditUser = () => {
   const [user, setUser] = useState(defaultValue);
-  const { name, username, email, phone, company, designation } = user;
+  const { name, email, phone, college } = user;
   const onValueChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
     console.log(user);
@@ -49,43 +43,89 @@ const EditUser = () => {
     await editUser(user, id);
     navigate("/all");
   };
+  const Title = () => {
+    return (
+      <Box
+        bgcolor="primary.main"
+        padding="8px"
+        borderRadius="8px"
+        boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+        marginY="10px"
+      >
+        <Typography variant="h3" align="center" color="white">
+          Update User Details
+        </Typography>
+      </Box>
+    );
+  };
+  
   return (
     <Container>
-      <Typography variant="h4">Edit User</Typography>
-      <FormControl>
+    <Title />
+    <Box
+      bgcolor="white"
+      padding="16px"
+      borderRadius="8px"
+      boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+      textAlign="center"
+      width="50%"
+      margin="50px auto"
+    >
+    <FormGroup>
+      <FormControl style={{ margin: '10px 0' }}>
         <InputLabel>Name : </InputLabel>
         <Input onChange={onValueChange} name="name" value={name} />
       </FormControl>
-      <FormControl>
-        <InputLabel>UserName : </InputLabel>
-        <Input onChange={onValueChange} name="username" value={username} />
-      </FormControl>
-      <FormControl>
+
+      <FormControl style={{ margin: '10px 0' }}>
         <InputLabel>Email : </InputLabel>
         <Input onChange={onValueChange} name="email" value={email} />
       </FormControl>
-      <FormControl>
+
+      <FormControl style={{ margin: '10px 0' }}>
         <InputLabel>Phone : </InputLabel>
-        <Input onChange={onValueChange} name="phone" value={phone} />
+        <Input onChange={onValueChange} name="phone" value={phone}/>
       </FormControl>
-      <FormControl>
-        <InputLabel>Company: </InputLabel>
-        <Input onChange={onValueChange} name="company" value={company} />
+
+      <FormControl style={{ margin: '10px 0' }}>
+        <InputLabel>College : </InputLabel>
+        <Input onChange={onValueChange} name="college" value={college}/>
       </FormControl>
-      <FormControl>
-        <InputLabel>Designtaion: </InputLabel>
-        <Input
-          onChange={onValueChange}
-          name="designation"
-          value={designation}
-        />
+
+      <FormControl style={{ margin: '10px 0' }}>
+      <Button variant="contained" onClick={() => editUserDetails()}>
+        EDIT USER
+    </Button>
       </FormControl>
-      <FormControl>
-        <Button variant="contained" onClick={() => editUserDetails()}>
-          EDIT USER
-        </Button>
-      </FormControl>
-    </Container>
+    </FormGroup>
+    </Box>
+  </Container>
+    // <Container>
+    //   <Title>
+    //   <FormControl>
+    //     <InputLabel>Name : </InputLabel>
+    //     <Input onChange={onValueChange} name="name" value={name} />
+    //   </FormControl>
+      
+    //   <FormControl>
+    //     <InputLabel>Email : </InputLabel>
+    //     <Input onChange={onValueChange} name="email" value={email} />
+    //   </FormControl>
+    //   <FormControl>
+    //     <InputLabel>Phone : </InputLabel>
+    //     <Input onChange={onValueChange} name="phone" value={phone} />
+    //   </FormControl>
+    //   <FormControl>
+    //     <InputLabel>College: </InputLabel>
+    //     <Input onChange={onValueChange} name="college" value={college} />
+    //   </FormControl>
+     
+    //   <FormControl>
+    //     <Button variant="contained" onClick={() => editUserDetails()}>
+    //       EDIT USER
+    //     </Button>
+    //   </FormControl>
+    // </Container>
   );
 };
 export default EditUser;

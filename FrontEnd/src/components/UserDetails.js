@@ -2,44 +2,32 @@ import {
   Table,
   TableBody,
   TableCell,
-  TableHead,
   TableRow,
   Typography,
-  styled,
   Box,
+  Container,
+  TableContainer,
+  Paper,
 } from "@mui/material";
 import { useLocation } from "react-router-dom";
 
-const Fahad = styled("div")`
-  background-color: aliceblue;
-`;
-const StyledTable = styled(Table)`
-  width: 50%;
-  margin: 50px auto;
-  border: 4px solid black;
-  background-color: white;
-`;
-
-const TableHeader = styled(TableHead)`
-  background-color: black;
-`;
-
-const TableData = styled(TableCell)`
-  font-size: 1.2rem;
-  padding: 16px;
-`;
+const TableData = {
+  fontSize: "1.2rem",
+  padding: "16px",
+  color: "black",
+};
 
 const Title = () => {
   return (
     <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      backgroundColor="black"
-      padding="5px"
+      bgcolor="primary.main"
+      padding="8px"
+      borderRadius="8px"
+      boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+      marginY="10px"
     >
-      <Typography variant="h3" color="white">
-        User Details:
+      <Typography variant="h3" align="center" color="white">
+        User Detail
       </Typography>
     </Box>
   );
@@ -49,68 +37,41 @@ const UserDetails = () => {
   const { state } = useLocation();
 
   return (
-    <Fahad>
+    <Container>
       <Title />
+      <TableContainer component={Paper}>
+        <Table>
+          <TableBody>
+            <TableRow>
+              <TableCell style={{ ...TableData, fontWeight: "bold" }}>
+                Name:
+              </TableCell>
+              <TableCell style={TableData}>{state.user.name}</TableCell>
+            </TableRow>
 
-      <StyledTable>
-        <TableHeader>
-          <TableRow>
-            <TableData style={{ color: "white", fontSize: "1.6rem" }}>
-              Field
-            </TableData>
-            <TableData style={{ color: "white", fontSize: "1.6rem" }}>
-              Value
-            </TableData>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Name : </TableData>
-            <TableData>{state.user.name}</TableData>
-          </TableRow>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Username : </TableData>
-            <TableData>{state.user.username}</TableData>
-          </TableRow>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Email : </TableData>
-            <TableData>{state.user.email}</TableData>
-          </TableRow>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Phone : </TableData>
-            <TableData>{state.user.phone}</TableData>
-          </TableRow>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Company : </TableData>
-            <TableData>{state.user.company}</TableData>
-          </TableRow>
-          <TableRow>
-            <TableData style={{ fontWeight: "bold" }}>Designtaion : </TableData>
-            <TableData>{state.user.designation}</TableData>
-          </TableRow>
-        </TableBody>
-      </StyledTable>
-    </Fahad>
+            <TableRow>
+              <TableCell style={{ ...TableData, fontWeight: "bold" }}>
+                Email:
+              </TableCell>
+              <TableCell style={TableData}>{state.user.email}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell style={{ ...TableData, fontWeight: "bold" }}>
+                Phone:
+              </TableCell>
+              <TableCell style={TableData}>{state.user.phone}</TableCell>
+            </TableRow>
+            <TableRow>
+              <TableCell style={{ ...TableData, fontWeight: "bold" }}>
+                College:
+              </TableCell>
+              <TableCell style={TableData}>{state.user.college}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 };
 
 export default UserDetails;
-
-// import { Typography } from "@mui/material";
-// import { useLocation } from "react-router-dom";
-
-// const UserDetails = () => {
-//   const { state } = useLocation();
-
-//   return (
-//     <div>
-//       <Typography variant="h4">User Details:</Typography>
-//       <Typography>Name: {state.user.name}</Typography>
-//       <Typography>Username: {state.user.username}</Typography>
-//       <Typography>Email: {state.user.email}</Typography>
-//       <Typography>Phone: {state.user.phone}</Typography>
-//     </div>
-//   );
-// };
-
-// export default UserDetails;

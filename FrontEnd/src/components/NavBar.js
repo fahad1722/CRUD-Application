@@ -1,24 +1,35 @@
-import { AppBar, Toolbar, styled } from "@mui/material";
-import { NavLink } from "react-router-dom";
-const Header = styled(AppBar)`
-  background: blue;
-`;
+import { AppBar, Toolbar, Tab, Tabs } from "@mui/material";
+import { Link, useLocation } from "react-router-dom";
 
-const Tabs = styled(NavLink)`
-  font-size: 20px;
-  margin-right: 20px;
-  color: inherit;
-  text-decoration: none;
-`;
 const NavBar = () => {
+  const location = useLocation();
   return (
-    <Header position="static">
+    <AppBar position="static">
       <Toolbar>
-        <Tabs to="/">Home</Tabs>
-        <Tabs to="/all">All Users</Tabs>
-        <Tabs to="/add">Add User</Tabs>
+        <Tabs value={location.pathname}>
+          <Tab
+            label="HOME"
+            component={Link}
+            to="/"
+            color="black"
+            sx={location.pathname === "/" ? {color:'white'} : ''}
+          />
+          <Tab
+            label="ALL USERS"
+            component={Link}
+            to="/all"
+            sx={location.pathname === "/all" ? {color:'white'} : ''}
+          />
+          <Tab
+            label="ADD USER"
+            component={Link}
+            to="/add"
+            sx={location.pathname === "/add" ? {color:'white'} : ''}
+          />
+        </Tabs>
       </Toolbar>
-    </Header>
+    </AppBar>
   );
 };
+
 export default NavBar;

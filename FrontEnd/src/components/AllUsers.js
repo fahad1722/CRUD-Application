@@ -1,50 +1,45 @@
 import {
-  TableHead,
   Table,
-  TableCell,
   TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
   TableRow,
-  styled,
+  Paper,
   Button,
   Typography,
   Box,
+  Container,
 } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getUsers, deleteUser } from "../API/api";
 import { Link, useNavigate } from "react-router-dom";
-const StyledTable = styled(Table)`
-  width: 99%;
-  margin: 50px auto 0 auto;
-`;
-const Thead = styled(TableRow)`
-  background: #000000;
-  & > th {
+import { styled } from "@mui/system";
+const StyledTableHead = styled(TableHead)`
+  background-color: black;
+  & .MuiTableCell-root {
     color: white;
     font-size: 20px;
   }
 `;
 
-const TBody = styled(TableRow)`
-  & > td {
-    font-size: 15px;
-  }
-`;
 
 const Title = () => {
   return (
     <Box
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      backgroundColor="black"
-      padding="5px"
+      backgroundColor="primary.main"
+      padding="8px"
+      borderRadius="8px"
+      boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+      marginY="10px"
     >
-      <Typography variant="h3" color="white">
+      <Typography variant="h3" align="center" color="white">
         All User Details
       </Typography>
     </Box>
   );
 };
+
 const AllUsers = () => {
   const [users, setUsers] = useState([]);
   useEffect(() => {
@@ -61,15 +56,11 @@ const AllUsers = () => {
       console.log("Error while getting all users", error);
     }
   };
+
   const deleteUserDetails = async (id) => {
     await deleteUser(id);
     getAllUsers();
   };
-  // const handleUserInfo = (user) => {
-  //     alert(
-  //       `Name: ${user.name}\nUsername: ${user.username}\nEmail: ${user.email}\nPhone: ${user.phone}`
-  //     );
-  //   };
 
   const navigate = useNavigate();
   const handleUserInfo = (user) => {
@@ -77,60 +68,62 @@ const AllUsers = () => {
   };
 
   return (
-    <>
+    <Container>
       <Title />
-      <StyledTable>
-        <TableHead>
-          <Thead>
-            <TableCell>Id</TableCell>
-            <TableCell>Name</TableCell>
-            <TableCell>UserName</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Phone</TableCell>
-            <TableCell>Company</TableCell>
-            <TableCell>Designtaion</TableCell>
-            <TableCell></TableCell>
-          </Thead>
-        </TableHead>
-        <TableBody>
-          {users.map((user1) => (
-            <TBody key={user1._id}>
-              <TableCell>{user1._id}</TableCell>
-              <TableCell>{user1.name}</TableCell>
-              <TableCell>{user1.username}</TableCell>
-              <TableCell>{user1.email}</TableCell>
-              <TableCell>{user1.phone}</TableCell>
-              <TableCell>{user1.company}</TableCell>
-              <TableCell>{user1.designation}</TableCell>
-              <TableCell>
-                <Button
-                  variant="contained"
-                  style={{ marginRight: 10 }}
-                  component={Link}
-                  to={`/edit/${user1._id}`}
-                >
-                  Edit
-                </Button>
-                <Button
-                  variant="contained"
-                  style={{ marginRight: 10 }}
-                  color="secondary"
-                  onClick={() => deleteUserDetails(user1._id)}
-                >
-                  Delete
-                </Button>
-                <Button
-                  variant="contained"
-                  onClick={() => handleUserInfo(user1)}
-                >
-                  Show Info
-                </Button>
-              </TableCell>
-            </TBody>
-          ))}
-        </TableBody>
-      </StyledTable>
-    </>
+      <TableContainer component={Paper}>
+        <Table>
+          <StyledTableHead>
+            <TableRow>
+              <TableCell>Id</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Email</TableCell>
+              <TableCell>Phone</TableCell>
+              <TableCell>College</TableCell>
+              <TableCell>Actions</TableCell>
+            </TableRow>
+          </StyledTableHead>
+          <TableBody>
+            {users.map((user) => (
+              <TableRow key={user._id}>
+                <TableCell>{user._id}</TableCell>
+                <TableCell>{user.name}</TableCell>
+                <TableCell>{user.email}</TableCell>
+                <TableCell>{user.phone}</TableCell>
+                <TableCell>{user.college}</TableCell>
+                <TableCell>
+                  <Button
+                    variant="contained"
+                    color="warning"
+                    component={Link}
+                    to={`/edit/${user._id}`}
+                    style={{ marginRight: 10 }}
+                  >
+                    Update
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => handleUserInfo(user)}
+                    style={{ marginRight: 10 }}
+                  >
+                    Read
+                  </Button>
+
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={() => deleteUserDetails(user._id)}
+                  >
+                    Delete
+                  </Button>
+
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Container>
   );
 };
 
