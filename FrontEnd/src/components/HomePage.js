@@ -23,16 +23,16 @@ const LeftComponent = () => {
           that allows you to efficiently manage user information. With this app, you can:
         </Typography>
         <Typography variant="body2" align="left" color="black" marginBottom={1}>
-          1. Create new user profiles
+          1. Create new user profiles.
         </Typography>
         <Typography variant="body2" align="left" color="black" marginBottom={1}>
-          2. Easily access and read information about all users
+          2. Easily access and read information about all users.
         </Typography>
         <Typography variant="body2" align="left" color="black" marginBottom={1}>
-          3. Update user details, including name, email, phone, company, and designation
+          3. Update user details, including name, email, phone and college.
         </Typography>
         <Typography variant="body2" align="left" color="black" marginBottom={1}>
-          4. Delete user profiles when they are no longer needed
+          4. Delete user profiles when they are no longer needed.
         </Typography>
 
 
