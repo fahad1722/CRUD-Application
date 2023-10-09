@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema({
   email: String,
   phone: String,
   college: String,
-  
 });
 
 autoIncrement.initialize(mongoose.connection);

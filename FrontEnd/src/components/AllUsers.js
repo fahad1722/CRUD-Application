@@ -22,8 +22,6 @@ const StyledTableHead = styled(TableHead)`
     font-size: 20px;
   }
 `;
-
-
 const Title = () => {
   return (
     <Box

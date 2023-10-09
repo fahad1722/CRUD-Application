@@ -12,19 +12,19 @@ const NavBar = () => {
             component={Link}
             to="/"
             color="black"
-            sx={location.pathname === "/" ? {color:'white'} : ''}
+            sx={location.pathname === "/" ? { color: 'white' } : ''}
           />
           <Tab
             label="ALL USERS"
             component={Link}
             to="/all"
-            sx={location.pathname === "/all" ? {color:'white'} : ''}
+            sx={location.pathname === "/all" ? { color: 'white' } : ''}
           />
           <Tab
             label="ADD USER"
             component={Link}
             to="/add"
-            sx={location.pathname === "/add" ? {color:'white'} : ''}
+            sx={location.pathname === "/add" ? { color: 'white' } : ''}
           />
         </Tabs>
       </Toolbar>

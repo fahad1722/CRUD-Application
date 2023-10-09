@@ -61,33 +61,33 @@ const AddUser = () => {
         width="50%"
         margin="50px auto"
       >
-      <FormGroup>
-        <FormControl style={{ margin: '10px 0' }}>
-          <InputLabel>Name : </InputLabel>
-          <Input onChange={onValueChange} name="name" />
-        </FormControl>
+        <FormGroup>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Name : </InputLabel>
+            <Input onChange={onValueChange} name="name" />
+          </FormControl>
 
-        <FormControl style={{ margin: '10px 0' }}>
-          <InputLabel>Email : </InputLabel>
-          <Input onChange={onValueChange} name="email" />
-        </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Email : </InputLabel>
+            <Input onChange={onValueChange} name="email" />
+          </FormControl>
 
-        <FormControl style={{ margin: '10px 0' }}>
-          <InputLabel>Phone : </InputLabel>
-          <Input onChange={onValueChange} name="phone" />
-        </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Phone : </InputLabel>
+            <Input onChange={onValueChange} name="phone" />
+          </FormControl>
 
-        <FormControl style={{ margin: '10px 0' }}>
-          <InputLabel>College : </InputLabel>
-          <Input onChange={onValueChange} name="college" />
-        </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>College : </InputLabel>
+            <Input onChange={onValueChange} name="college" />
+          </FormControl>
 
-        <FormControl style={{ margin: '10px 0' }}>
-          <Button variant="contained" onClick={addUserDetails}>
-            ADD
-          </Button>
-        </FormControl>
-      </FormGroup>
+          <FormControl style={{ margin: '10px 0' }}>
+            <Button variant="contained" onClick={addUserDetails}>
+              ADD
+            </Button>
+          </FormControl>
+        </FormGroup>
       </Box>
     </Container>
   );

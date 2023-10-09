@@ -20,7 +20,7 @@ const defaultValue = {
   email: "",
   phone: "",
   college: "",
- 
+
 };
 const EditUser = () => {
   const [user, setUser] = useState(defaultValue);
@@ -58,74 +58,48 @@ const EditUser = () => {
       </Box>
     );
   };
-  
+
   return (
     <Container>
-    <Title />
-    <Box
-      bgcolor="white"
-      padding="16px"
-      borderRadius="8px"
-      boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
-      textAlign="center"
-      width="50%"
-      margin="50px auto"
-    >
-    <FormGroup>
-      <FormControl style={{ margin: '10px 0' }}>
-        <InputLabel>Name : </InputLabel>
-        <Input onChange={onValueChange} name="name" value={name} />
-      </FormControl>
+      <Title />
+      <Box
+        bgcolor="white"
+        padding="16px"
+        borderRadius="8px"
+        boxShadow="4px 4px 4px 4px rgba(0, 0, 0, 0.25)"
+        textAlign="center"
+        width="50%"
+        margin="50px auto"
+      >
+        <FormGroup>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Name : </InputLabel>
+            <Input onChange={onValueChange} name="name" value={name} />
+          </FormControl>
 
-      <FormControl style={{ margin: '10px 0' }}>
-        <InputLabel>Email : </InputLabel>
-        <Input onChange={onValueChange} name="email" value={email} />
-      </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Email : </InputLabel>
+            <Input onChange={onValueChange} name="email" value={email} />
+          </FormControl>
 
-      <FormControl style={{ margin: '10px 0' }}>
-        <InputLabel>Phone : </InputLabel>
-        <Input onChange={onValueChange} name="phone" value={phone}/>
-      </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>Phone : </InputLabel>
+            <Input onChange={onValueChange} name="phone" value={phone} />
+          </FormControl>
 
-      <FormControl style={{ margin: '10px 0' }}>
-        <InputLabel>College : </InputLabel>
-        <Input onChange={onValueChange} name="college" value={college}/>
-      </FormControl>
+          <FormControl style={{ margin: '10px 0' }}>
+            <InputLabel>College : </InputLabel>
+            <Input onChange={onValueChange} name="college" value={college} />
+          </FormControl>
 
-      <FormControl style={{ margin: '10px 0' }}>
-      <Button variant="contained" onClick={() => editUserDetails()}>
-        EDIT USER
-    </Button>
-      </FormControl>
-    </FormGroup>
-    </Box>
-  </Container>
-    // <Container>
-    //   <Title>
-    //   <FormControl>
-    //     <InputLabel>Name : </InputLabel>
-    //     <Input onChange={onValueChange} name="name" value={name} />
-    //   </FormControl>
-      
-    //   <FormControl>
-    //     <InputLabel>Email : </InputLabel>
-    //     <Input onChange={onValueChange} name="email" value={email} />
-    //   </FormControl>
-    //   <FormControl>
-    //     <InputLabel>Phone : </InputLabel>
-    //     <Input onChange={onValueChange} name="phone" value={phone} />
-    //   </FormControl>
-    //   <FormControl>
-    //     <InputLabel>College: </InputLabel>
-    //     <Input onChange={onValueChange} name="college" value={college} />
-    //   </FormControl>
-     
-    //   <FormControl>
-    //     <Button variant="contained" onClick={() => editUserDetails()}>
-    //       EDIT USER
-    //     </Button>
-    //   </FormControl>
-    // </Container>
+          <FormControl style={{ margin: '10px 0' }}>
+            <Button variant="contained" onClick={() => editUserDetails()}>
+              EDIT USER
+            </Button>
+          </FormControl>
+        </FormGroup>
+      </Box>
+    </Container>
   );
 };
 export default EditUser;
