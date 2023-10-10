@@ -8,3 +8,4 @@ This is a simple CRUD (Create, Read, Update, Delete) application that allows you
 
 4. Delete user profiles when they are no longer needed
 
+![1](https://github.com/fahad1722/CRUD-Application/assets/127012601/18128e23-474d-40fa-bc2d-3d85aee64571)
