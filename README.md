@@ -10,9 +10,11 @@ This is a simple CRUD (Create, Read, Update, Delete) application that allows you
 4. Delete user profiles when they are no longer needed
 
 # TechStack Used
-FrontEnd: ReactJS and Material-UI
-BackEnd: NodeJS and ExpressJS
-Database: MongoDB
+- FrontEnd: ReactJS and Material-UI
+- BackEnd: NodeJS and ExpressJS
+- Database: MongoDB
+
+
 ![1](https://github.com/fahad1722/CRUD-Application/assets/127012601/3472531d-1798-4b52-9456-7b4f4e5916f4)
 
 ![2](https://github.com/fahad1722/CRUD-Application/assets/127012601/2db51b57-8d64-42e8-8e6a-73e898819b13)
